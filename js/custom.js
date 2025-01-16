@@ -120,6 +120,77 @@
 	}
 	tinySdlier();
 
+	// Event data handling
+const eventsData = {
+	"events": [
+	  {
+		"id": 1,
+		"title": "Turnamen Futsal Antar SMA",
+		"date": "24 Maret 2024",
+		"image": "images/adat.jpg",
+		"class": "GOR Padjajaran",
+		"category": "event"
+	  },
+	  {
+		"id": 2,
+		"title": "Charity Football Match",
+		"date": "1 April 2024",
+		"image": "images/alun2.jpg",
+		"class": "Stadion Siliwangi",
+		"category": "achievment"
+	  },
+	  {
+		"id": 3,
+		"title": "Random Event",
+		"date": "15 April 2024",
+		"image": "images/diramalam.jpg",
+		"class": "Venue Random",
+		"category": "moment"
+	  }
+	]
+  };
+  
+  function renderEvents(category) {
+	// Update active button
+	const buttons = document.querySelectorAll('.filter-btn');
+	buttons.forEach(btn => btn.classList.remove('active'));
+	event.target.classList.add('active');
+  
+	// Filter events
+	const filteredEvents = category === 'all' 
+	  ? eventsData.events 
+	  : eventsData.events.filter(event => event.category === category);
+  
+	// Generate HTML
+	const container = document.getElementById('events-container');
+	container.innerHTML = filteredEvents.map(event => `
+	  <div class="col-lg-4 col-md-6 mb-4">
+		<div class="property-item">
+		  <div class="img">
+			<img src="${event.image}" alt="${event.title}" class="img-fluid popup-image" onclick="openImagePopup(this.src)" />
+		  </div>
+		  <div class="property-content">
+			<div class="event-date mb-2">
+			  <span>${event.date}</span>
+			</div>
+			<div>
+			  <h3 class="event-title mb-2">${event.title}</h3>
+			  <span class="location d-block mb-3">
+				<i class="icon-location-arrow me-2"></i>
+				${event.class}
+			  </span>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	`).join('');
+  }
+  
+  // Initialize with all events
+  document.addEventListener('DOMContentLoaded', () => {
+	renderEvents('all');
+  });
+
 
 
 })()
