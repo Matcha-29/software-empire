@@ -205,22 +205,20 @@
       <!-- Heading Section -->
       <div class="row mb-5 align-items-center">
         <div class="col-lg-6">
-          <h2 class="font-weight-bold text-primary heading">
-            Event Terbaru
-          </h2>
+          <h2 class="font-weight-bold text-primary heading">Event Terbaru</h2>
         </div>
         <div class="col-lg-6 text-lg-end">
           <div class="d-flex justify-content-lg-end gap-2">
-            <button onclick="renderEvents('all')" class="btn btn-outline-primary py-3 px-4 filter-btn active">
+            <button class="btn btn-outline-primary py-3 px-4 filter-btn active" data-category="all">
               Semua
             </button>
-            <button onclick="renderEvents('event')" class="btn btn-primary py-3 px-4 filter-btn">
+            <button class="btn btn-primary py-3 px-4 filter-btn" data-category="event">
               Event
             </button>
-            <button onclick="renderEvents('achievment')" class="btn btn-success py-3 px-4 filter-btn">
-              Achievment
+            <button class="btn btn-success py-3 px-4 filter-btn" data-category="achievement">
+              Achievement
             </button>
-            <button onclick="renderEvents('moment')" class="btn btn-success py-3 px-4 filter-btn">
+            <button class="btn btn-warning py-3 px-4 filter-btn" data-category="moment">
               Moment
             </button>
           </div>
@@ -237,6 +235,13 @@
       </div>
     </div>
   </div>
+
+  <!-- Image Popup -->
+  <div id="image-popup" class="image-popup">
+    <span class="close-popup" onclick="closeImagePopup()">&times;</span>
+    <img id="popup-content" class="popup-content" />
+  </div>
+
 
   <!-- Image Popup Modal -->
   <div id="imagePopup" class="image-popup">
