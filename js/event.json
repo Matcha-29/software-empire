@@ -1,0 +1,52 @@
+{
+    "events" : [
+        {
+            "id" : 1,
+            "title" : "Turnamen Futsal Antar SMA",
+            "date" : "24 Maret 2024",
+            "image" : "images/img_3.jpg",
+            "class" : "XII RPL",
+            "category": "kejuaraan"
+        },
+        {
+            "id" : 2,
+            "title" : "Event 2",
+            "date" : "2022-01-01",
+            "image" : "https://via.placeholder.com/150x150",
+            "class" : "event-2",
+            "category": "kejuaraan"
+        },
+        {
+            "id" : 3,
+            "title" : "Event 3",
+            "date" : "2022-01-01",
+            "image" : "https://via.placeholder.com/150x150",
+            "class" : "event-3",
+            "category": "kejuaraan"
+        },
+        {
+            "id" : 4,
+            "title" : "Event 4",
+            "date" : "2022-01-01",
+            "image" : "https://via.placeholder.com/150x150",
+            "class" : "event-3",
+            "category": "kejuaraan"
+        },
+        {
+            "id" : 5,
+            "title" : "Event 5",
+            "date" : "2022-01-01",
+            "image" : "https://via.placeholder.com/150x150",
+            "class" : "event-2",
+            "category": "solidaritas"
+        },
+        {
+            "id" : 6,
+            "title" : "Event 6",
+            "date" : "2022-01-01",
+            "image" : "https://via.placeholder.com/150x150",
+            "class" : "event-3",
+            "category": "random"
+        }
+    ]
+}

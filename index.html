@@ -1,0 +1,430 @@
+<!-- /*
+* Template Name: Property
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    background: #000;
+  }
+
+  .hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .hero .hero-slide .img {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero .heading {
+    font-size: 48px;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .hero .heading {
+      font-size: 32px;
+    }
+
+    .hero p {
+      font-size: 16px;
+    }
+  }
+
+  /* Event Card Styles */
+  .category-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .event-date {
+    color: #005555;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .event-title {
+    font-size: 1.25rem;
+    color: #333;
+    font-weight: 600;
+  }
+
+  .location {
+    color: #666;
+    font-size: 0.95rem;
+  }
+
+  .event-info {
+    color: #555;
+    font-size: 0.9rem;
+  }
+
+  .property-item {
+    transition: transform 0.3s ease;
+  }
+
+  .property-item:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Button Styles */
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+
+  .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+
+  /* Gap utility */
+  .gap-2 {
+    gap: 0.5rem;
+  }
+
+  /* Image Popup Styles */
+  .image-popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+  }
+
+  .popup-content {
+    max-width: 90%;
+    max-height: 90vh;
+    margin: auto;
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .close-popup {
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+  }
+
+  .popup-image {
+    cursor: pointer;
+    transition: opacity 0.3s;
+  }
+
+  .popup-image:hover {
+    opacity: 0.8;
+  }
+</style>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Untree.co" />
+  <link rel="shortcut icon" href="favicon.png" />
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap5" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="fonts/icomoon/style.css" />
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+  <link rel="stylesheet" href="css/tiny-slider.css" />
+  <link rel="stylesheet" href="css/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <title>Property &mdash; Free Bootstrap 5 Website Template by Untree.co</title>
+</head>
+
+<body>
+  <!-- Mobile Menu -->
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close">
+        <span class="icofont-close js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-slide">
+      <div class="img overlay" style="background-image: url('images/hero_bg_3.jpg')"></div>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-9 text-center">
+          <h1 class="heading" data-aos="fade-up">
+            SOFTWARE EMPIRE
+          </h1>
+          <p class="text-white" data-aos="fade-up" data-aos-delay="100">
+           Kelas Paling Kece Dek SENGGOL DONG!!!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <!-- Heading Section -->
+      <div class="row mb-5 align-items-center">
+        <div class="col-lg-6">
+          <h2 class="font-weight-bold text-primary heading">
+            Event Terbaru
+          </h2>
+        </div>
+        <div class="col-lg-6 text-lg-end">
+          <div class="d-flex justify-content-lg-end gap-2">
+            <a onclick="renderEvents('kejuaraan')" class="btn btn-primary text-white py-3 px-4">Kejuaraan</a>
+            <a onclick="renderEvents('solidaritas')" class="btn btn-success text-white py-3 px-4">Solidaritas</a>
+            <a onclick="renderEvents('random')" class="btn btn-success text-white py-3 px-4">Random</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event Cards -->
+      <div class="row">
+        <div class="col-12">
+          <div class="property-slider-wrap">
+            <div class="property-slider">
+              <!-- Event Card 1 - Kejuaraan -->
+              <div class="property-item">
+                <div class="img">
+                  <img src="images/img_3.jpg" alt="Event" class="img-fluid popup-image"
+                    onclick="openImagePopup(this.src)" />
+                  
+                </div>
+
+                <div class="property-content">
+                  <div class="event-date mb-2">
+                    <span>24 Maret 2024</span>
+                  </div>
+                  <div>
+                    <h3 class="event-title mb-2">Turnamen Futsal Antar SMA</h3>
+                    <span class="location d-block mb-3">
+                      <i class="icon-location-arrow me-2"></i>
+                      GOR Padjajaran
+                    </span>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="property-item">
+                <div class="img">
+                  <img src="images/img_3.jpg" alt="Event" class="img-fluid popup-image"
+                    onclick="openImagePopup(this.src)" />
+                  
+                </div>
+
+                <div class="property-content">
+                  <div class="event-date mb-2">
+                    <span>24 Maret 2024</span>
+                  </div>
+                  <div>
+                    <h3 class="event-title mb-2">Turnamen Futsal Antar SMA</h3>
+                    <span class="location d-block mb-3">
+                      <i class="icon-location-arrow me-2"></i>
+                      GOR Padjajaran
+                    </span>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event Card 2 - Solidaritas -->
+              <div class="property-item">
+                <div class="img">
+                  <img src="images/img_1.jpg" alt="Event" class="img-fluid popup-image"
+                    onclick="openImagePopup(this.src)" />
+                  
+                </div>
+
+                <div class="property-content">
+                  <div class="event-date mb-2">
+                    <span>1 April 2024</span>
+                  </div>
+                  <div>
+                    <h3 class="event-title mb-2">Charity Football Match</h3>
+                    <span class="location d-block mb-3">
+                      <i class="icon-location-arrow me-2"></i>
+                      Stadion Siliwangi
+                    </span>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event Card 3 - Random -->
+              <div class="property-item">
+                <div class="img">
+                  <img src="images/img_2.jpg" alt="Event" class="img-fluid popup-image"
+                    onclick="openImagePopup(this.src)" />
+                 
+                </div>
+
+                <div class="property-content">
+                  <div class="event-date mb-2">
+                    <span>1 April 2024</span>
+                  </div>
+                  <div>
+                    <h3 class="event-title mb-2">Charity Football Match</h3>
+                    <span class="location d-block mb-3">
+                      <i class="icon-location-arrow me-2"></i>
+                      Stadion Siliwangi
+                    </span>
+
+                  
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tambahkan event card lainnya di sini -->
+
+            </div>
+
+            <!-- Navigation -->
+            <div id="property-nav" class="controls" tabindex="0" aria-label="Carousel Navigation">
+              <span class="prev" data-controls="prev" aria-controls="property" tabindex="-1">Prev</span>
+              <span class="next" data-controls="next" aria-controls="property" tabindex="-1">Next</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tambahkan modal di akhir body sebelum scripts -->
+  <div id="imagePopup" class="image-popup">
+    <span class="close-popup" onclick="closeImagePopup()">&times;</span>
+    <img id="popupImage" class="popup-content" src="" alt="Popup Image">
+  </div>
+
+  <div class="site-footer text-center">
+    <div class="container ">
+      <div class="row">
+       
+        <!-- /.col-lg-4 -->
+
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-12 ">
+          <div class="widget">
+            <h3>Links</h3>
+           
+
+            <ul class="list-unstyled social">
+              <li>
+                <a href="#"><span class="icon-instagram"></span></a>
+              </li>
+              <li>
+                <a href="#"><span class="icon-twitter"></span></a>
+              </li>
+              <li>
+                <a href="#"><span class="icon-facebook"></span></a>
+              </li>
+              <li>
+                <a href="#"><span class="icon-linkedin"></span></a>
+              </li>
+              <li>
+                <a href="#"><span class="icon-pinterest"></span></a>
+              </li>
+              <li>
+                <a href="#"><span class="icon-dribbble"></span></a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /.col-lg-4 -->
+      </div>
+      <!-- /.row -->
+
+      <div class="row mt-2">
+        <div class="col-12 text-center">
+          <!-- 
+              **==========
+              NOTE: 
+              Please don't remove this copyright link unless you buy the license here https://untree.co/license/  
+              **==========
+            -->
+
+          <p>
+            Copyright &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            . All Rights Reserved. &mdash; Designed with love by
+            <a href="https://untree.co">Software Empire</a>
+            <!-- License information: https://untree.co/license/ -->
+          </p>
+         
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.site-footer -->
+
+  <script src="./js/script.js"></script>
+
+
+  <!-- Preloader -->
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/tiny-slider.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/counter.js"></script>
+  <script src="js/custom.js"></script>
+</body>
+
+</html>
