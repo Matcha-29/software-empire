@@ -124,18 +124,17 @@
 
 const eventsData = {
 	events: [
-	  { id: 1, title: "Turnamen Futsal Antar SMA", date: "24 Maret 2024", image: "images/adat.jpg", class: "GOR Padjajaran", category: "event" },
-	  { id: 2, title: "Charity Football Match", date: "1 April 2024", image: "images/alun2.jpg", class: "Stadion Siliwangi", category: "achievement" },
-	  { id: 3, title: "Random Event", date: "15 April 2024", image: "images/diramalam.jpg", class: "Venue Random", category: "moment" },
-	  { id: 4, title: "Charity Football Match", date: "1 April 2024", image: "images/gogo.jpg", class: "Stadion Siliwangi", category: "event" },
-	  { id: 5, title: "Random Event", date: "15 April 2024", image: "images/vitamin.jpg", class: "Venue Random", category: "moment" },
-	  { id: 6, title: "Charity Football Match", date: "1 April 2024", image: "images/lbb.jpg", class: "Stadion Siliwangi", category: "achievement" },
-	  { id: 7, title: "Random Event", date: "15 April 2024", image: "images/pahlawanle.jpg", class: "Venue Random", category: "moment" },
-	  { id: 8, title: "Random Event", date: "15 April 2024", image: "images/bukber.jpg", class: "Venue Random", category: "moment" },
-	  { id: 9, title: "Random Event", date: "15 April 2024", image: "images/dira.jpg", class: "Venue Random", category: "moment" },
-	  { id: 10, title: "Random Event", date: "15 April 2024", image: "images/hariguru.jpg", class: "Venue Random", category: "moment" },
-	  { id: 11, title: "Random Event", date: "15 April 2024", image: "images/juarale.jpg", class: "Venue Random", category: "achievement" },
-	  { id: 12, title: "Random Event", date: "15 April 2024", image: "images/juarale.jpg", class: "Venue Random", category: "moment" },
+	  { id: 1, title: "Hari Pahlawan", date: "24 Maret 2024", image: "images/adat.jpg", class: "GOR Padjajaran", category: "event" },
+	  { id: 2, title: "Outing Class 2023", date: "8 Maret 2023", image: "images/alun2.jpg", class: "X RPL", category: "achievement" },
+	  { id: 3, title: "Tour Dira Park", date: "25 Mei 2024", image: "images/diramalam.jpg", class: "XI RPL", category: "moment" },
+	  { id: 4, title: "Perayaan Pasca Juara 2 PBB", date: "24 Mei 2023", image: "images/gogo.jpg", class: "X RPL", category: "event" },
+	  { id: 5, title: "Vitamin", date: "15 April 2024", image: "images/vitamin.jpg", class: "Venue Random", category: "moment" },
+	  { id: 6, title: "Lomba PBB", date: "24 Mei 2023", image: "images/lbb.jpg", class: "X RPL", category: "achievement" },
+	  { id: 7, title: "Lomba Drama Kolosal", date: "12 Juni 2024", image: "images/pahlawanle.jpg", class: "XI RPL", category: "moment" },
+	  { id: 8, title: "Buka Bersama", date: "17 Mei 2024", image: "images/bukber.jpg", class: "XI RPL", category: "moment" },
+	  { id: 9, title: "Tour Dira Park", date: "25 Mei 2024", image: "images/dira.jpg", class: "XI RPL", category: "moment" },
+	  { id: 10, title: "Hari Guru 2024", date: "11 December 2023", image: "images/hariguru.jpg", class: "XI RPL", category: "moment" },
+	  { id: 11, title: "Juara 1 Drama Kolosal dan Juara 3 Literasi", date: "14 Juni 2024", image: "images/juarale.jpg", class: "XI RPL", category: "achievement" },
 	],
   };
   
