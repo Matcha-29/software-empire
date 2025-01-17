@@ -27,8 +27,6 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-
-
   <style>
     /* Image Popup Styles */
     .image-popup {
@@ -41,7 +39,20 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.9);
       padding: 20px;
-      animation: fadeIn 0.3s;
+      animation: fadeIn 0.3s, slideIn 0.3s;
+      /* Tambahkan animasi slideIn */
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .popup-content {
@@ -129,12 +140,18 @@
     .property-item .img {
       position: relative;
       overflow: hidden;
+      height: 320px;
+      /* Set fixed height for the image container */
     }
 
     .property-item .img img {
       width: 100%;
-      height: 250px;
+      height: 100%;
+      /* Make the image fill the container */
       object-fit: cover;
+      /* Ensure the image covers the area without distortion */
+      object-position: center;
+      /* Center the image */
     }
 
     .property-content {
@@ -156,13 +173,38 @@
       font-size: 0.9rem;
     }
 
-    /* Button styles */
+    .btn {
+      text-decoration: none !important;
+      border-radius: 30px;
+      border: 2px solid transparent;
+      /* Border default */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* Tambahkan shadow */
+      transition: all 0.3s ease;
+      /* Transisi untuk efek hover */
+    }
+
+    .btn:hover {
+      border: 2px solid #007bff;
+      /* Ganti dengan warna border saat hover */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      /* Tambahkan shadow lebih gelap saat hover */
+    }
+
     .filter-btn {
       transition: all 0.3s ease;
+      border: 2px solid transparent;
+      /* Border default */
     }
 
     .filter-btn.active {
       transform: scale(1.05);
+      background-color: #007bff;
+      /* Ganti dengan warna yang diinginkan */
+      color: white;
+      /* Warna teks saat aktif */
+      border: 2px solid #0056b3;
+      /* Border saat aktif */
     }
   </style>
 
@@ -205,20 +247,23 @@
       <!-- Heading Section -->
       <div class="row mb-5 align-items-center">
         <div class="col-lg-6">
-          <h2 class="font-weight-bold text-primary heading">Event Terbaru</h2>
+          <h2 class="font-weight-bold text-primary heading" data-aos="fade-up">Event Terbaru</h2>
         </div>
         <div class="col-lg-6 text-lg-end">
           <div class="d-flex justify-content-lg-end gap-2">
-            <button class="btn btn-outline-primary py-3 px-4 filter-btn active" data-category="all">
+            <button type="button" class="btn btn-outline-primary py-3 px-4 filter-btn" data-category="all"
+              data-aos="fade-up">
               Semua
             </button>
-            <button class="btn btn-primary py-3 px-4 filter-btn" data-category="event">
+            <button type="button" class="btn btn-white drop-shadow-lg py-3 px-4 filter-btn" data-category="event"
+              data-aos="fade-up">
               Event
             </button>
-            <button class="btn btn-success py-3 px-4 filter-btn" data-category="achievement">
+            <button type="button" class="btn btn-white py-3 px-4 drop-shadow-lg filter-btn" data-category="achievement"
+              data-aos="fade-up">
               Achievement
             </button>
-            <button class="btn btn-warning py-3 px-4 filter-btn" data-category="moment">
+            <button type="button" class="btn btn-white py-3 px-4 filter-btn" data-category="moment" data-aos="fade-up">
               Moment
             </button>
           </div>
@@ -275,7 +320,7 @@
               document.write(new Date().getFullYear());
             </script>
             . All Rights Reserved. &mdash; Designed with love by
-            <a href="https://untree.co">Software Empire</a>
+            <a href="https://www.instagram.com/software._.empire/">Software Empire</a>
           </p>
         </div>
       </div>
@@ -342,6 +387,13 @@
       e.preventDefault();
     });
 
+    document.addEventListener('DOMContentLoaded', function () {
+      AOS.init({
+        duration: 800, // Durasi animasi
+        easing: 'ease-in-out', // Easing animasi
+        once: true // Hanya animasi sekali
+      });
+    });
 
   </script>
 

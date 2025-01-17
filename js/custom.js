@@ -127,56 +127,71 @@ const eventsData = {
 	  { id: 1, title: "Turnamen Futsal Antar SMA", date: "24 Maret 2024", image: "images/adat.jpg", class: "GOR Padjajaran", category: "event" },
 	  { id: 2, title: "Charity Football Match", date: "1 April 2024", image: "images/alun2.jpg", class: "Stadion Siliwangi", category: "achievement" },
 	  { id: 3, title: "Random Event", date: "15 April 2024", image: "images/diramalam.jpg", class: "Venue Random", category: "moment" },
-	  { id: 4, title: "Charity Football Match", date: "1 April 2024", image: "images/gogo.jpg", class: "Stadion Siliwangi", category: "achievement" },
+	  { id: 4, title: "Charity Football Match", date: "1 April 2024", image: "images/gogo.jpg", class: "Stadion Siliwangi", category: "event" },
 	  { id: 5, title: "Random Event", date: "15 April 2024", image: "images/vitamin.jpg", class: "Venue Random", category: "moment" },
 	  { id: 6, title: "Charity Football Match", date: "1 April 2024", image: "images/lbb.jpg", class: "Stadion Siliwangi", category: "achievement" },
 	  { id: 7, title: "Random Event", date: "15 April 2024", image: "images/pahlawanle.jpg", class: "Venue Random", category: "moment" },
+	  { id: 8, title: "Random Event", date: "15 April 2024", image: "images/bukber.jpg", class: "Venue Random", category: "moment" },
+	  { id: 9, title: "Random Event", date: "15 April 2024", image: "images/dira.jpg", class: "Venue Random", category: "moment" },
+	  { id: 10, title: "Random Event", date: "15 April 2024", image: "images/hariguru.jpg", class: "Venue Random", category: "moment" },
+	  { id: 11, title: "Random Event", date: "15 April 2024", image: "images/juarale.jpg", class: "Venue Random", category: "achievement" },
+	  { id: 12, title: "Random Event", date: "15 April 2024", image: "images/juarale.jpg", class: "Venue Random", category: "moment" },
 	],
   };
   
-  function renderEvents(event, category) {
-	// Update active button state
-	const buttons = document.querySelectorAll('.filter-btn');
-	buttons.forEach(btn => btn.classList.remove('active'));
-	if (event && event.target) {
-	  event.target.classList.add('active');
-	}
+function initializeEventFilters() {
+	// Tambahkan event listener ke semua button filter
+	const filterButtons = document.querySelectorAll('.filter-btn');
+	
+	filterButtons.forEach(button => {
+	  button.addEventListener('click', function() {
+		// Hapus class active dari semua button
+		filterButtons.forEach(btn => btn.classList.remove('active'));
+		// Tambah class active ke button yang diklik
+		this.classList.add('active');
+		
+		// Ambil kategori dari data-category
+		const category = this.getAttribute('data-category');
+		
+		// Filter dan tampilkan events
+		const filteredEvents = category === 'all' 
+		  ? eventsData.events 
+		  : eventsData.events.filter(event => event.category === category);
+		
+		// Update tampilan
+		// Update bagian di custom.js yang mengupdate tampilan event
+const container = document.getElementById('events-container');
+container.innerHTML = filteredEvents.map((event, index) => `
+  <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="${index % 3 * 100}">
+    <div class="property-item">
+      <div class="img">
+        <img src="${event.image}" alt="${event.title}" class="img-fluid popup-image" onclick="openImagePopup('${event.image}')" />
+      </div>a
+      <div class="property-content">
+        <div class="event-date mb-2">
+          <span>${event.date}</span>
+        </div>
+        <div>
+          <h3 class="event-title mb-2">${event.title}</h3>
+          <span class="location d-block mb-3">
+            <i class="icon-location-arrow me-2"></i>
+            ${event.class}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+`).join('');
+	  });
+	});
   
-	// Filter events based on category
-	const filteredEvents = category === 'all' 
-	  ? eventsData.events 
-	  : eventsData.events.filter(evt => evt.category === category);
-  
-	// Generate HTML for filtered events
-	const container = document.getElementById('events-container');
-	if (container) {
-	  container.innerHTML = filteredEvents.map(evt => `
-		<div class="col-lg-4 col-md-6 mb-4">
-		  <div class="property-item">
-			<div class="img">
-			  <img src="${evt.image}" alt="${evt.title}" class="img-fluid popup-image" onclick="openImagePopup(this.src)" />
-			</div>
-			<div class="property-content">
-			  <div class="event-date mb-2">
-				<span>${evt.date}</span>
-			  </div>
-			  <div>
-				<h3 class="event-title mb-2">${evt.title}</h3>
-				<span class="location d-block mb-3">
-				  <i class="icon-location-arrow me-2"></i>
-				  ${evt.class}
-				</span>
-			  </div>
-			</div>
-		  </div>
-		</div>
-	  `).join('');
-	}
+	// Tampilkan semua event saat halaman dimuat
+	document.querySelector('[data-category="all"]').click();
   }
   
-  // Initialize with all events when page loads
-  document.addEventListener('DOMContentLoaded', () => {
-	renderEvents(null, 'all');
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+	initializeEventFilters();
   });
 	  
 
